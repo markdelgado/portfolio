@@ -1,7 +1,12 @@
-$primary-color: #ffd700;
+// $primary-color: #ffd700;
+$primary-color: teal;
 
 @import 'animate.css';
-@import '~loaders.css/src/animations/pacman.scss';
+// @import '~loaders.css/src/animations/pacman.scss';
+// @import '~loaders.css/src/animations/line-scale.scss';
+@import '~loaders.css/src/animations/line-scale-pulse-out-rapid';
+// @import '~loaders.css/src/animations/ball-clip-rotate-multiple';
+
 
 @font-face {
     font-family: 'Helvetica Neue';
