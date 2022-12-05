@@ -13,7 +13,7 @@ const refForm = useRef()
 const [formInfo, setFormInfo]= useState('')
 
     useEffect(() => {
-        return setTimeout(() => {
+        setTimeout(() => {
             setLetterClass('text-animate=hover')
         }, 3000)
     }, [])
@@ -40,7 +40,7 @@ const sendForm = (e) => {
                 <h1>
                     <AnimatedLetters 
                     letterClass={letterClass}
-                    strArry={['C', 'o', 'n', 't', 'a', 'c', 't', '','m', 'e']}
+                    strArry={['C', 'o', 'n', 't', 'a', 'c', 't', ' ','m', 'e']}
                     idx={15}/>
                 </h1>
                 <p>
