@@ -3,6 +3,7 @@ import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
 import { useState, useEffect, useRef } from 'react';
 import emailjs, { sendForm }  from '@emailjs/browser';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 
 
@@ -24,9 +25,11 @@ const sendForm = (e) => {
     emailjs.sendForm('service_kro6e02', 'template_ckrm16d', refForm.current, 'o_deSIDWwrzms3nyy')
         .then((result) => {
             console.log('SUCCESS!', result.status, result.text);
+            alert('Great your messaage has been sent.')
             
         },  (error) => {
             console.log('FAILED...', error.text);
+            alert('Failed to send message')
         });
         e.target.reset()
 };
@@ -62,12 +65,42 @@ const sendForm = (e) => {
                             <li>
                                 <input className='flat-button' type='submit' value='Send'/>
                             </li>
+                            
 
                         </ul>
 
                     </form>
                 </div>
 
+            </div>
+            <div className='info-map'>
+                Mark Delgado
+                <br/>
+                New York, NY
+                <br/>
+                 <span> markdelgado220@gmail.com </span>
+                 {/* <link> markdelgado220@gmail.com </link> */}
+            </div>
+            <div className='map-wrap'>
+                {/* <MapContainer center={[40.7128, 74.0060]} zoom={13}>
+                    <TileLayer url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'/>
+                    <Marker position={[40.7128, 70.0060]}>
+                        <Popup></Popup>
+
+                    </Marker>
+
+                </MapContainer> */}
+                    <MapContainer center={[40.7128, -74.0060]} zoom={12} scrollWheelZoom={false}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        {/* <Marker position={[51.505, -0.09]}>
+                            <Popup>
+                                A pretty CSS3 popup. <br /> Easily customizable.
+                            </Popup>
+                        </Marker> */}
+                    </MapContainer>
             </div>
         </div>
      <Loader type='line-scale-pulse-out-rapid'/>
